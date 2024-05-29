@@ -1,12 +1,12 @@
-# jobhunter
+# Jobhunter
 
 *Kliensoldali webprogramozás 2. beadandó*
 ## Nyilatkozat
 Kérlek, töltsétek ki az adataitokkal beadás előtt!
 
 ```
-<Hallgató neve>
-<Neptun kódja>
+<Réthey-Prikkel Krisztiá>
+<RGCFPD>
 Kliensoldali webprogramozás - beadandó
 Ezt a megoldást a fent írt hallgató küldte be és készítette a Kliensoldali webprogramozás kurzus számonkéréséhez.
 Kijelentem, hogy ez a megoldás a saját munkám. Nem másoltam vagy használtam harmadik féltől
