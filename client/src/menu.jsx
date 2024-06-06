@@ -3,13 +3,13 @@ import {Link} from "react-router-dom";
 export default function Menu() {
   return (
     <>
-      <nav className="flex justify-between gap-2">
-        <Link to="/registration">Registration</Link>
-        <Link to="/login">Login</Link>
-        <Link to="/logout">Logout</Link>
-        <Link to="/">Home</Link>
-        <Link to="/profile">Profile</Link>
-        <Link to="/jobs">Jobs</Link>
+      <nav className="navbar bg-base-100">
+        <Link className="btn btn-ghost text-xl" to="/registration">Registration</Link>
+        <Link className="btn btn-ghost text-xl" to="/login">LogIn</Link>
+        <Link className="btn btn-ghost text-xl" to="/logout">LogOut</Link>
+        <Link className="btn btn-ghost text-xl" to="/">Home</Link>
+        <Link className="btn btn-ghost text-xl" to="/profile">Profile</Link>
+        <Link className="btn btn-ghost text-xl" to="/jobs">Jobs</Link>
       </nav>
     </>
   );

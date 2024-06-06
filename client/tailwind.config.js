@@ -1,4 +1,3 @@
-
 import daisyui from "daisyui"
 
 /** @type {import('tailwindcss').Config} */
