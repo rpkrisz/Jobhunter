@@ -1,16 +1,27 @@
-import {Link} from "react-router-dom";
+import {NavLink} from "react-router-dom";
 
 export default function Menu() {
   return (
-    <>
-      <nav className="navbar bg-base-100">
-        <Link className="btn btn-ghost text-xl" to="/registration">Registration</Link>
-        <Link className="btn btn-ghost text-xl" to="/login">LogIn</Link>
-        <Link className="btn btn-ghost text-xl" to="/logout">LogOut</Link>
-        <Link className="btn btn-ghost text-xl" to="/">Home</Link>
-        <Link className="btn btn-ghost text-xl" to="/profile">Profile</Link>
-        <Link className="btn btn-ghost text-xl" to="/jobs">Jobs</Link>
-      </nav>
-    </>
+    <nav className="navbar bg-base-100 flex-grow">
+      <p className="text-xl">Job Hunter</p>
+      <NavLink className="btn btn-ghost text-xl" to="/registration">
+        Registration
+      </NavLink>
+      <NavLink className="btn btn-ghost text-xl" to="/login">
+        LogIn
+      </NavLink>
+      <NavLink className="btn btn-ghost text-xl" to="/logout">
+        LogOut
+      </NavLink>
+      <NavLink className="btn btn-ghost text-xl" to="/">
+        Jobs
+      </NavLink>
+      <NavLink className="btn btn-ghost text-xl" to="/profile">
+        Profile
+      </NavLink>
+      <NavLink className="btn btn-ghost text-xl" to="/jobs">
+        Add job advertisement
+      </NavLink>
+    </nav>
   );
 }
