@@ -1,4 +1,4 @@
-import {Navigate, RouterProvider, createBrowserRouter} from "react-router-dom";
+import {RouterProvider, createBrowserRouter} from "react-router-dom";
 import "./App.css";
 import Layout from "./layout";
 import Home from "./home/home";
@@ -7,12 +7,12 @@ import Registration from "./auth/registration";
 import Login from "./auth/login";
 import Logout from "./auth/logout";
 import JobForm from "./jobForm/jobform";
+import RequireAuth from "./RequireAuth";
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <Layout />,
-    errorElement: <Navigate to="/" />,
     children: [
       {
         index: true,
@@ -32,11 +32,19 @@ const router = createBrowserRouter([
       },
       {
         path: "/profile",
-        element: <Profile />,
+        element: (
+          <RequireAuth>
+            <Profile />
+          </RequireAuth>
+        ),
       },
       {
         path: "/jobs",
-        element: <JobForm />,
+        element: (
+          <RequireAuth>
+            <JobForm />
+          </RequireAuth>
+        ),
       },
     ],
   },
