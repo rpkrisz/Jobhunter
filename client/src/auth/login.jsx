@@ -28,7 +28,7 @@ export default function Login() {
   return (
     <form
       action=""
-      className="bg-slate-400 size-fit p-5 rounded flex flex-col gap-2 "
+      className="bg-slate-400 size-fit p-5 rounded form-control gap-2 "
     >
       <Error message={error} setError={setError} />
       <Email data={logdata} handelChange={handelChange} />

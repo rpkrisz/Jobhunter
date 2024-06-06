@@ -36,7 +36,7 @@ export default function Registration() {
   return (
     <form
       action=""
-      className="bg-slate-400 size-fit p-5 rounded flex flex-col gap-2 "
+      className="form-control bg-slate-400 size-fit p-5 rounded gap-2 "
     >
       <Error message={error} setError={setError} />
       <Name data={regdata} handelChange={handelChange} />
