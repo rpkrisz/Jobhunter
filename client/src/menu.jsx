@@ -1,9 +1,11 @@
 import {Link, NavLink} from "react-router-dom";
 import {useSelector} from "react-redux";
+import {useDispatch} from "react-redux";
+import {logout} from "./state/authSlice.js";
 
 export default function Menu() {
   const user = useSelector(state => state.auth.user);
-  console.log(user?.role);
+  const dispatch = useDispatch();
 
   return (
     <nav className="navbar bg-base-100 flex-grow">
@@ -33,7 +35,13 @@ export default function Menu() {
               Add job advertisement
             </NavLink>
           )}
-          <NavLink className="btn btn-ghost text-xl" to="/logout">
+          <NavLink
+            className="btn btn-ghost text-xl"
+            to="/"
+            onClick={() => {
+              dispatch(logout());
+            }}
+          >
             LogOut
           </NavLink>
         </>

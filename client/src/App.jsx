@@ -5,7 +5,6 @@ import Home from "./home/home";
 import Profile from "./profile/profile";
 import Registration from "./auth/registration";
 import Login from "./auth/login";
-import Logout from "./auth/logout";
 import JobForm from "./jobForm/jobform";
 import RequireAuth from "./RequireAuth";
 
@@ -25,10 +24,6 @@ const router = createBrowserRouter([
       {
         path: "/login",
         element: <Login />,
-      },
-      {
-        path: "/logout",
-        element: <Logout />,
       },
       {
         path: "/profile",
