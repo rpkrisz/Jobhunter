@@ -4,8 +4,7 @@ import Menu from "./menu";
 export default function Layout() {
   return (
     <div className="container">
-      <header>
-      </header>
+      <header></header>
       <Menu />
       <main>
         <Outlet />
