@@ -1,19 +1,25 @@
 import { configureStore } from "@reduxjs/toolkit"
-import {puzzleServerSlice} from "./puzzleServerSlice.js";
-import {puzzleApiSlice} from "./puzzleApiSlice.js";
-import {authApiSlice} from "./authApiSlice.js";
-import {authSlice} from "./authSlice.js";
+import { jobApiSlice } from "./jobApiSlice.js";
+import { applicantApiSlice } from "./applicantApiSlice.js";
+import { experienceApiSlice } from "./experienceApiSlice.js";
+import { authApiSlice } from "./authApiSlice.js";
+import { authSlice } from "./authSlice.js";
 
 
 export const store = configureStore({
     reducer: {
-        [puzzleServerSlice.name]: puzzleServerSlice.reducer,
         [authSlice.name]: authSlice.reducer,
-        [puzzleApiSlice.reducerPath]: puzzleApiSlice.reducer,
         [authApiSlice.reducerPath]: authApiSlice.reducer,
+        [applicantApiSlice.reducerPath]: applicantApiSlice.reducer,
+        [jobApiSlice.reducerPath]: jobApiSlice.reducer,
+        [experienceApiSlice.reducerPath]: experienceApiSlice.reducer,
 
     },
     middleware: (getDefaultMiddleware) => (
-        getDefaultMiddleware().concat(puzzleApiSlice.middleware).concat(authApiSlice.middleware)
+        getDefaultMiddleware()
+            .concat(applicantApiSlice.middleware)
+            .concat(authApiSlice.middleware)
+            .concat(jobApiSlice.middleware)
+            .concat(experienceApiSlice.middleware)
     )
 })
