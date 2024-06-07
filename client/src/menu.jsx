@@ -1,7 +1,9 @@
 import {Link, NavLink} from "react-router-dom";
 import {useSelector} from "react-redux";
 import {useDispatch} from "react-redux";
-import {logout} from "./state/authSlice.js";
+import { logout } from "./state/authSlice.js";
+import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
+import {faBriefcase} from "@fortawesome/free-solid-svg-icons";
 
 export default function Menu() {
   const user = useSelector(state => state.auth.user);
@@ -10,7 +12,7 @@ export default function Menu() {
   return (
     <nav className="navbar bg-base-100 flex-grow">
       <Link className="text-3xl" to="/">
-        JH
+        <FontAwesomeIcon icon={faBriefcase} size="lg" />{" "}
       </Link>
       {!user && (
         <>
