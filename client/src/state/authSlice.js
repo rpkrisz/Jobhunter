@@ -20,7 +20,7 @@ export const authSlice = createSlice({
     extraReducers: (builder) => {
         builder.addMatcher(authApiSlice.endpoints.login.matchFulfilled, (state, { payload }) => {
             state.user = payload.user;
-            state.token = payload.token;
+            state.token = payload.accessToken;
         })
     }
 })

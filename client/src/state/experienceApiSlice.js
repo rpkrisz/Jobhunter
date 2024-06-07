@@ -4,6 +4,13 @@ export const experienceApiSlice = createApi({
     reducerPath: "experienceApiSlice",
     baseQuery: fetchBaseQuery({
         baseUrl: "http://localhost:3030/experiences",
+        prepareHeaders: (headers, { getState }) => {
+            const token = getState().auth.token
+            if (token) {
+                headers.set('authorization', `Bearer ${token}`)
+            }
+            return headers
+        },
     }),
     tagTypes: ["Experiences"],
     endpoints: (builder) => ({

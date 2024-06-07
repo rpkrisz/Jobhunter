@@ -4,6 +4,13 @@ export const applicantApiSlice = createApi({
     reducerPath: "applicantApiSlice",
     baseQuery: fetchBaseQuery({
         baseUrl: "http://localhost:3030/applicants",
+        prepareHeaders: (headers, { getState }) => {
+            const token = getState().auth.token
+            if (token) {
+                headers.set('authorization', `Bearer ${token}`)
+            }
+            return headers
+        },
     }),
     tagTypes: ["Applicants"],
     endpoints: (builder) => ({

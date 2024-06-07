@@ -4,6 +4,13 @@ export const jobApiSlice = createApi({
     reducerPath: "jobApiSlice",
     baseQuery: fetchBaseQuery({
         baseUrl: "http://localhost:3030/jobs",
+        prepareHeaders: (headers, { getState }) => {
+            const token = getState().auth.token
+            if (token) {
+                headers.set('authorization', `Bearer ${token}`)
+            }
+            return headers
+        },
     }),
     tagTypes: ["Jobs"],
     endpoints: (builder) => ({
