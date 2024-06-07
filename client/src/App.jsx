@@ -5,7 +5,7 @@ import Home from "./home/home";
 import Profile from "./profile/profile";
 import Registration from "./auth/registration";
 import Login from "./auth/login";
-import JobForm from "./jobForm/jobform";
+import JobForm from "./jobs/jobform";
 import RequireAuth from "./RequireAuth";
 
 const router = createBrowserRouter([
