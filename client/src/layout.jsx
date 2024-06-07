@@ -4,10 +4,8 @@ import Menu from "./menu";
 export default function Layout() {
   return (
     <>
-      <header className="header ">
-        <Menu />
-      </header>
-      <main className="flex flex-row justify-center w-full h-[87dvh] p-6 ">
+      <Menu />
+      <main className="container flex flex-col justify-center content-center flex-wrap px-6 mx-auto min-h-[87svh] overflow-auto">
         <Outlet />
       </main>
       <footer className="footer footer-center p-4 bg-base-300 text-base-content">
