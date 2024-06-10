@@ -1,11 +1,11 @@
-import {useSelector} from "react-redux";
-export default function PersonalData() {
-  const user = useSelector(state => state.auth.user);
+export default function PersonalData({user}) {
   return (
-    <div >
+    <div>
       <div className="my-3">
         <h2 className="text-xl">Personal data</h2>
-        <p className="text-xs text-secondary-content">Your data and experience all in one place.</p>
+        <p className="text-xs text-secondary-content">
+          Your data and experience all in one place.
+        </p>
       </div>
       <table className="table table-zebra">
         <tbody>
