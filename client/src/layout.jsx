@@ -5,7 +5,7 @@ export default function Layout() {
   return (
     <>
       <Menu />
-      <main className="container flex flex-col justify-center content-center flex-wrap px-6 mx-auto min-h-[87svh] overflow-auto">
+      <main className="container flex flex-col justify-center content-center flex-wrap px-6 mx-auto min-h-[87svh] overflow-auto w-9/12 ">
         <Outlet />
       </main>
       <footer className="footer footer-center p-4 bg-base-300 text-base-content">
