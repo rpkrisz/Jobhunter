@@ -15,7 +15,37 @@ export const jobApiSlice = createApi({
     tagTypes: ["Jobs"],
     endpoints: (builder) => ({
         getJobs: builder.query({
-            query: () => "",
+            query: (parms) => {
+                if (parms) {
+                    const url = [];
+                    for (const item of Object.entries(parms)) {
+                        switch (item[0]) {
+                            case "skip":
+                                url.push("$" + item.join("="))
+                                break;
+                            case "limit":
+                                url.push("$" + item.join("="))
+                                break;
+                            case "company":
+                                url.push(item[0] + "[$like]=%" + item[1] + "%")
+                                break;
+                            case "city":
+                                url.push(item[0] + "[$like]=%" + item[1] + "%")
+                                break;
+                            case "salaryFrom":
+                                url.push(item.join("[$gt]="))
+                                break;
+                            case "salaryTo":
+                                url.push(item.join("[$lt]="))
+                                break;
+                            default: url.push(item.join("="))
+                                break;
+                        }
+                    }
+                    return "?"+ url.join('&');
+                }
+                return "";
+            },
             transformResponse: (result) => result.data,
             providesTags: ["Jobs"]
         }),
