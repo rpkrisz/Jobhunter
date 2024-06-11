@@ -3,12 +3,12 @@ import JobList from "./Components/JobList.jsx";
 import FilterModal from "./Components/FilterModal.jsx";
 import InfinitLoading from "../Components/InfinitLoading.jsx";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
+import {useState} from "react";
 import {
   faMagnifyingGlass,
   faFilter,
   faXmark,
 } from "@fortawesome/free-solid-svg-icons";
-import {useState} from "react";
 
 export default function Home() {
   const [filterData, setFilterData] = useState({});
@@ -26,7 +26,7 @@ export default function Home() {
     <>
       <h1>Home</h1>
       <div className="flex flex-col gap-1 ">
-        <div className="flex flex-row gap-5 ">
+        <div className="flex flex-row gap-5 flex-wrap">
           <label className="input input-bordered flex items-center gap-2 grow">
             <input
               type="text"
@@ -37,7 +37,7 @@ export default function Home() {
               }}
             />
             <FontAwesomeIcon icon={faMagnifyingGlass} />
-          </label>{" "}
+          </label>
           <button
             className="btn"
             onClick={() => document.getElementById("filtermodal").showModal()}
