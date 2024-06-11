@@ -5,8 +5,9 @@ import Home from "./home/home";
 import Profile from "./profile/profile";
 import Registration from "./auth/registration";
 import Login from "./auth/login";
-import JobForm from "./jobs/jobform";
+import JobForm from "./jobs/JobForm";
 import RequireAuth from "./RequireAuth";
+import Job from "./jobs/Job";
 
 const router = createBrowserRouter([
   {
@@ -35,11 +36,21 @@ const router = createBrowserRouter([
       },
       {
         path: "/jobs",
-        element: (
-          <RequireAuth>
-            <JobForm />
-          </RequireAuth>
-        ),
+        element: null,
+        children: [
+          {
+            index: true,
+            element: (
+              <RequireAuth>
+                <JobForm />
+              </RequireAuth>
+            ),
+          },
+          {
+            path: "/jobs/:jobId",
+            element: <Job />,
+          },
+        ],
       },
     ],
   },
