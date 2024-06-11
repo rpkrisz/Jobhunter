@@ -4,6 +4,7 @@
     "tabWidth": 2,
     "printWidth": 80,
     "endOfLine": "lf",
-    "arrowParens":"avoid",
-    "semi": true
+    "arrowParens": "avoid",
+    "semi": true,
+    "embeddedLanguageFormatting": "auto"
 }
