@@ -1,4 +1,4 @@
-export default function TextArea({name, label}) {
+export default function TextArea({name, label, inputData, handelChange}) {
   return (
     <label className="form-control justify-start flex-grow">
       <div className="label">
@@ -7,6 +7,8 @@ export default function TextArea({name, label}) {
       <textarea
         name={name}
         className="textarea textarea-bordered  w-full "
+        value={inputData[name] ?? ""}
+        onChange={e => handelChange(e)}
       ></textarea>
     </label>
   );

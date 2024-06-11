@@ -1,4 +1,4 @@
-export default function NumberInput({name, label}) {
+export default function NumberInput({name, label, inputData, handelChange}) {
   return (
     <label className="form-control justify-start flex-grow">
       <div className="label">
@@ -8,6 +8,8 @@ export default function NumberInput({name, label}) {
         type="number"
         name={name}
         className="input input-bordered w-full"
+        value={inputData[name] ?? ""}
+        onChange={e => handelChange(e)}
       />
     </label>
   );
