@@ -2,7 +2,7 @@ import {useState} from "react";
 import {useLoginMutation} from "../state/authApiSlice.js";
 import {useNavigate} from "react-router-dom";
 import Email from "./Components/EmailInput.jsx";
-import Error from "./Components/Error.jsx";
+import Error from "../Components/Error.jsx";
 import Password from "./Components/PasswordInput.jsx";
 
 function validation(params) {}

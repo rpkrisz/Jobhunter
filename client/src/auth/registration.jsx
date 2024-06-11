@@ -5,7 +5,7 @@ import Email from "./Components/EmailInput.jsx";
 import Password from "./Components/PasswordInput.jsx";
 import Name from "./Components/NameInput.jsx";
 import Role from "./Components/RoleInput.jsx";
-import Error from "./Components/Error.jsx";
+import Error from "../Components/Error.jsx";
 
 export default function Registration() {
   const [apiReg] = useRegisterMutation();

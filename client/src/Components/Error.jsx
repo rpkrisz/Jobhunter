@@ -1,7 +1,13 @@
+import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
+import {faXmark} from "@fortawesome/free-solid-svg-icons";
+
 export default function Error({message, setError}) {
   if (!message) {
     return;
   }
+
+  message = message.charAt(0).toUpperCase() + message.slice(1);
+
   return (
     <div role="alert" className="alert alert-error">
       <svg
@@ -19,7 +25,7 @@ export default function Error({message, setError}) {
       </svg>
       <span>Error! {message}</span>
       <button className="btn btn-sm" onClick={() => setError("")}>
-        x
+        <FontAwesomeIcon icon={faXmark} />
       </button>
     </div>
   );
