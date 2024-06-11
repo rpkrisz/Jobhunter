@@ -15,7 +15,17 @@ import {
   faTrash,
   faPenToSquare,
   faEye,
+  faCircleCheck,
+  faCircleXmark,
 } from "@fortawesome/free-solid-svg-icons";
+
+export function CircleCheckIcon(params) {
+  return <FontAwesomeIcon icon={faCircleCheck} {...params} />;
+}
+
+export function CircleXmarkIcon(params) {
+  return <FontAwesomeIcon icon={faCircleXmark} {...params} />;
+}
 
 export function PenToSquareIcon(params) {
   return <FontAwesomeIcon icon={faPenToSquare} {...params} />;

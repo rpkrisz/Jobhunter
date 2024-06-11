@@ -46,19 +46,17 @@ export default function JobForm() {
       body: inputData,
     }).then(resp => {
       console.log(resp);
-      resp.error
-        ? setError(`${resp.error.data.message}. Try again!`)
-        : navigate("/");
+      resp.error ? setError(`${resp.error.data.message}. Try again!`) : navigate("/");
     });
   };
 
   return (
     <>
-      <Error message={error} setError={setError} />
+      {error && <Error message={error} closeFunction={() => setError("")} />}
       <form
         action=""
         method="post"
-        className="flex flex-col flex-wrap justify-between w-full max-w-screen-lg  rounded p-5"
+        className="flex flex-col flex-wrap justify-between w-full max-w-screen-lg  rounded p-5 mx-auto"
       >
         <div className="flex justify-between flex-wrap gap-3 items-center">
           <TextInput
@@ -96,20 +94,11 @@ export default function JobForm() {
           handelChange={handelChange}
         />
         <div className="flex justify-between flex-wrap gap-3 items-center">
-          <TextInput
-            name="city"
-            label="City"
-            inputData={inputData}
-            handelChange={handelChange}
-          />
+          <TextInput name="city" label="City" inputData={inputData} handelChange={handelChange} />
           <SelectInput inputData={inputData} handelChange={handelChange} />
           <CheckBox inputData={inputData} handelChange={handelChange} />
         </div>
-        <button
-          type="submit"
-          className="btn btn-primary mt-3"
-          onClick={e => handelSubmit(e)}
-        >
+        <button type="submit" className="btn btn-primary mt-3" onClick={e => handelSubmit(e)}>
           Add advertisement
         </button>
       </form>

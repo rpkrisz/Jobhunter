@@ -26,11 +26,8 @@ export default function Login() {
   }
 
   return (
-    <form
-      action=""
-      className="bg-slate-400 size-fit p-5 rounded form-control gap-2 "
-    >
-      <Error message={error} setError={setError} />
+    <form action="" className="bg-slate-400 size-fit p-5 rounded form-control gap-2 ">
+      <Error message={error} closeFunction={() => setError("")} />
       <Email data={logdata} handelChange={handelChange} />
       <Password data={logdata} handelChange={handelChange} />
       <button onClick={e => handelSubmit(e)}>Login</button>

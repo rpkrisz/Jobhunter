@@ -27,18 +27,13 @@ export default function Registration() {
     apiReg({
       body: regdata,
     }).then(resp => {
-      resp.data
-        ? navigate("/login")
-        : setError("Registration failed. Try again!");
+      resp.data ? navigate("/login") : setError("Registration failed. Try again!");
     });
   }
 
   return (
-    <form
-      action=""
-      className="form-control bg-slate-400 size-fit p-5 rounded gap-2 "
-    >
-      <Error message={error} setError={setError} />
+    <form action="" className="form-control bg-slate-400 size-fit p-5 rounded gap-2 ">
+      <Error message={error} closeFunction={() => setError("")} />
       <Name data={regdata} handelChange={handelChange} />
       <Email data={regdata} handelChange={handelChange} />
       <Password data={regdata} handelChange={handelChange} />
