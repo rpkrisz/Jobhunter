@@ -4,24 +4,13 @@ import FilterModal from "./Components/FilterModal.jsx";
 import InfinitLoading from "../Components/InfinitLoading.jsx";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {useState} from "react";
-import {
-  faMagnifyingGlass,
-  faFilter,
-  faXmark,
-} from "@fortawesome/free-solid-svg-icons";
+import {faMagnifyingGlass, faFilter} from "@fortawesome/free-solid-svg-icons";
+import FiltersRow from "./Components/FiltersRow.jsx";
 
 export default function Home() {
   const [filterData, setFilterData] = useState({});
   let {data, isSuccess} = useGetJobsQuery(filterData);
-  function handelFilterRemove(filterKey) {
-    const result = {};
-    for (const key in filterData) {
-      if (key !== filterKey) {
-        result[key] = filterData[key];
-      }
-    }
-    setFilterData(result);
-  }
+
   return (
     <>
       <h1>Home</h1>
@@ -46,26 +35,7 @@ export default function Home() {
             Filter
           </button>
         </div>
-        {Object.keys(filterData).length !== 0 && (
-          <div className="flex bg-neutral p-2 rounded-sm justify-start text-lg ">
-            {Object.entries(filterData).map(filter => {
-              return (
-                <div key={filter[0]} className="badge badge-outline gap-1 p2">
-                  <FontAwesomeIcon
-                    icon={faXmark}
-                    onClick={() => {
-                      handelFilterRemove(filter[0]);
-                    }}
-                    className="rounded-md p-1 hover:bg-red-500"
-                  />
-                  <p>
-                    {filter[0]}: {filter[1]}
-                  </p>
-                </div>
-              );
-            })}
-          </div>
-        )}
+          <FiltersRow filterData={filterData} setFilterData={setFilterData} />
       </div>
       <FilterModal filterData={filterData} setFilterData={setFilterData} />
       {isSuccess ? <JobList jobs={data} /> : <InfinitLoading />}
