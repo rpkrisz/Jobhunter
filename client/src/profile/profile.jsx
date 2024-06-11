@@ -1,7 +1,8 @@
 import Experiences from "./Components/Experiences.jsx";
 import PersonalData from "./Components/PersonalData.jsx";
-import JobList from "./Components/JobList.jsx";
+import AdvertisementList from "./Components/AdvertisementList.jsx";
 import {useSelector} from "react-redux";
+import { Link } from "react-router-dom";
 
 export default function Profile() {
   const user = useSelector(state => state.auth.user);
@@ -17,8 +18,13 @@ export default function Profile() {
         )}
         {user.role === "company" && (
           <>
-            <h2 className="text-xl">A te hírdetéseid:</h2>
-            <JobList />
+            <div className="flex flex-row justify-between">
+              <h2 className="text-xl">A te hírdetéseid:</h2>
+              <Link className="btn" to="/jobs">
+                Add advertisement
+              </Link>
+            </div>
+            <AdvertisementList />
           </>
         )}
       </div>

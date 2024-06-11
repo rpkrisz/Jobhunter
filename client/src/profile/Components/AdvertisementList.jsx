@@ -1,4 +1,4 @@
-import JobItem from "./JobItem";
+import AdvertisementItem from "./AdvertisementItem.jsx";
 import {useGetJobsQuery} from "../../state/jobApiSlice.js";
 import InfinitLoading from "../../Components/InfinitLoading.jsx";
 
@@ -14,7 +14,7 @@ export default function JobList() {
           <div className="divider divider-primary divider-start">Jobs</div>
           <ul>
             {data.map(job => (
-              <JobItem key={job.id} job={job} />
+              <AdvertisementItem key={job.id} job={job} />
             ))}
           </ul>
         </div>

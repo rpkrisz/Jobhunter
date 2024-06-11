@@ -7,7 +7,7 @@ export default function JobItem({job}) {
   function handelDelete() {}
 
   return (
-    <li className="container flex flex-row text-left bg-green-500 m-3 p-2 rounded justify-between">
+    <li className="container flex flex-row text-left bg-green-500 m-3 p-2 rounded justify-between flex-wrap gap-1">
       <div className="self-center">
         <div className="flex justify-between items-center">
           <p className="font-bold text-4xl self-start">{job.position}</p>
@@ -21,13 +21,14 @@ export default function JobItem({job}) {
             <FontAwesomeIcon icon={faLocationDot} /> {job.city}
           </p>
           {!job.homeOffice || (
-            <p className="badge badge-primary self-end self-center">
+            <p className="badge badge-primary self-center">
               Home Office
             </p>
           )}
         </div>
       </div>
-      <div className="self-center felx flex-col gap-4 justify-center ">
+      <div className="self-center felx flex-col gap-4 justify-center place-self-auto">
+        
         <button className="btn btn-neutral" onClick={handelEdit}>
           Edit
         </button>

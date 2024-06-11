@@ -1,11 +1,12 @@
 export default function PersonalData({user}) {
   return (
     <div>
-      <div className="my-3">
-        <h2 className="text-xl">Personal data</h2>
-        <p className="text-xs text-secondary-content">
-          Your data and experience all in one place.
-        </p>
+      <div className="my-3 flex justify-between ">
+        <div>
+          <h2 className="text-xl">Personal data</h2>
+          <p className="text-xs">Your data and experience all in one place.</p>
+        </div>
+        <button className="btn btn-primary">Edit experiences</button>
       </div>
       <table className="table table-zebra">
         <tbody>
