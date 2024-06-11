@@ -1,9 +1,9 @@
-import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
-import {faUser} from "@fortawesome/free-solid-svg-icons";
+import {UserIcon} from "../../Components/FawIcons";
+
 export default function NameInput({data, handelChange}) {
   return (
     <label className="input input-bordered flex items-center gap-2">
-      <FontAwesomeIcon icon={faUser} />
+      <UserIcon />
       <input
         type="text"
         name="fullname"

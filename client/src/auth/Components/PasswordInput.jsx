@@ -1,9 +1,9 @@
-import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
-import {faKey} from "@fortawesome/free-solid-svg-icons";
+import {KeyIcon} from "../../Components/FawIcons";
+
 export default function PasswordInput({data, handelChange}) {
   return (
     <label className="input input-bordered flex items-center gap-2">
-      <FontAwesomeIcon icon={faKey} />
+      <KeyIcon />
       <input
         type="password"
         name="password"

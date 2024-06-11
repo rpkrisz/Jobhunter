@@ -1,5 +1,4 @@
-import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
-import {faXmark} from "@fortawesome/free-solid-svg-icons";
+import {XmarkIcon} from "./FawIcons";
 
 export default function Error({message, setError}) {
   if (!message) {
@@ -25,7 +24,7 @@ export default function Error({message, setError}) {
       </svg>
       <span>Error! {message}</span>
       <button className="btn btn-sm" onClick={() => setError("")}>
-        <FontAwesomeIcon icon={faXmark} />
+        <XmarkIcon />
       </button>
     </div>
   );

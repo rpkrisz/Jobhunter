@@ -1,5 +1,5 @@
-import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
-import {faXmark} from "@fortawesome/free-solid-svg-icons";
+import {XmarkIcon} from "../../Components/FawIcons";
+
 export default function FiltersRow({filterData, setFilterData}) {
   function handelFilterRemove(filterKey) {
     const result = {};
@@ -18,8 +18,7 @@ export default function FiltersRow({filterData, setFilterData}) {
           {Object.entries(filterData).map(filter => {
             return (
               <div key={filter[0]} className="badge badge-outline gap-1 p2">
-                <FontAwesomeIcon
-                  icon={faXmark}
+                <XmarkIcon
                   onClick={() => {
                     handelFilterRemove(filter[0]);
                   }}

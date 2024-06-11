@@ -2,10 +2,9 @@ import {useGetJobsQuery} from "../state/jobApiSlice.js";
 import JobList from "./Components/JobList.jsx";
 import FilterModal from "./Components/FilterModal.jsx";
 import InfinitLoading from "../Components/InfinitLoading.jsx";
-import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {useState} from "react";
-import {faMagnifyingGlass, faFilter} from "@fortawesome/free-solid-svg-icons";
 import FiltersRow from "./Components/FiltersRow.jsx";
+import {MagnifyingGlassIcon, FilterIcon} from "../Components/FawIcons.jsx";
 
 export default function Home() {
   const [filterData, setFilterData] = useState({});
@@ -25,17 +24,17 @@ export default function Home() {
                 setFilterData({...filterData, company: e.target.value});
               }}
             />
-            <FontAwesomeIcon icon={faMagnifyingGlass} />
+            <MagnifyingGlassIcon />
           </label>
           <button
             className="btn"
             onClick={() => document.getElementById("filtermodal").showModal()}
           >
-            <FontAwesomeIcon icon={faFilter} />
+            <FilterIcon />
             Filter
           </button>
         </div>
-          <FiltersRow filterData={filterData} setFilterData={setFilterData} />
+        <FiltersRow filterData={filterData} setFilterData={setFilterData} />
       </div>
       <FilterModal filterData={filterData} setFilterData={setFilterData} />
       {isSuccess ? <JobList jobs={data} /> : <InfinitLoading />}

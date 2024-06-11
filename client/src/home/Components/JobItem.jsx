@@ -1,8 +1,7 @@
-import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
-import {faLocationDot, faBuilding} from "@fortawesome/free-solid-svg-icons";
-import { Link } from "react-router-dom";
-export default function JobItem({ job }) {
-  console.log(job.id);
+import {Link} from "react-router-dom";
+import {BuildingIcon, LocationDotIcon} from "../../Components/FawIcons";
+
+export default function JobItem({job}) {
   return (
     <li className="container flex flex-col text-left bg-green-500 p-2 rounded">
       <Link to={"/jobs/" + job.id} className="text-neutral">
@@ -18,11 +17,11 @@ export default function JobItem({ job }) {
         <hr />
         <div className="self-start ">
           <p>
-            <FontAwesomeIcon icon={faBuilding} />
+            <BuildingIcon />
             {job.company}
           </p>
           <p>
-            <FontAwesomeIcon icon={faLocationDot} /> {job.city}
+            <LocationDotIcon /> {job.city}
           </p>
         </div>
 
