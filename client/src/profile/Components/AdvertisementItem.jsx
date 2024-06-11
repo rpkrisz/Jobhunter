@@ -6,11 +6,21 @@ import {
   HourglassIcon,
   GraduationCapIcon,
 } from "../../Components/FawIcons";
-import {Link} from "react-router-dom";
 
-export default function JobItem({job}) {
-  function handelEdit() {}
-  function handelDelete() {}
+export default function AdvertisementItem({job, setSelectedJob}) {
+  function handelEdit() {
+    console.log("Edit");
+  }
+
+  function handelDelete() {
+    console.log("Delete");
+  }
+
+  function handelShow() {
+    setSelectedJob(job.id);
+    document.getElementById(`applicantsModal`).showModal();
+  }
+
   function iconSwitch(type) {
     switch (type) {
       case "full-time":
@@ -53,11 +63,12 @@ export default function JobItem({job}) {
         <button className="btn btn-neutral" onClick={handelEdit}>
           Edit
         </button>
-        <Link className="btn btn-neutral" to={"/"}>
+
+        <button className="btn btn-neutral mx-1" onClick={handelShow}>
           Show
-        </Link>
         <button className="btn btn-error" onClick={handelDelete}>
           Delete
+        </button>
         </button>
       </div>
     </li>
