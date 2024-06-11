@@ -5,6 +5,9 @@ import {
   HourglassEndIcon,
   HourglassIcon,
   GraduationCapIcon,
+  PenToSquareIcon,
+  EyeIcon,
+  TrashIcon,
 } from "../../Components/FawIcons";
 
 export default function AdvertisementItem({job, setSelectedJob}) {
@@ -60,15 +63,22 @@ export default function AdvertisementItem({job, setSelectedJob}) {
         </div>
       </div>
       <div className="self-center felx flex-col gap-4 justify-center place-self-auto">
-        <button className="btn btn-neutral" onClick={handelEdit}>
-          Edit
+        <button className="btn btn-neutral mx-1 tooltip" data-tip="Edit" onClick={handelEdit}>
+          <PenToSquareIcon />
         </button>
-
-        <button className="btn btn-neutral mx-1" onClick={handelShow}>
-          Show
-        <button className="btn btn-error" onClick={handelDelete}>
-          Delete
+        <button
+          className="btn btn-neutral mx-1 tooltip"
+          data-tip="Show applicants"
+          onClick={handelShow}
+        >
+          <EyeIcon />
         </button>
+        <button
+          className="btn btn-error mx-1 tooltip tooltip-error "
+          data-tip="Delete"
+          onClick={handelDelete}
+        >
+          <TrashIcon />
         </button>
       </div>
     </li>

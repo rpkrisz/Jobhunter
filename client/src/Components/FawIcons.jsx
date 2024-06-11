@@ -12,7 +12,18 @@ import {
   faHourglassEnd,
   faHourglass,
   faGraduationCap,
+  faTrash,
+  faPenToSquare,
+  faEye,
 } from "@fortawesome/free-solid-svg-icons";
+
+export function PenToSquareIcon(params) {
+  return <FontAwesomeIcon icon={faPenToSquare} {...params} />;
+}
+
+export function EyeIcon(params) {
+  return <FontAwesomeIcon icon={faEye} {...params} />;
+}
 
 export function FilterIcon(params) {
   return <FontAwesomeIcon icon={faFilter} {...params} />;
@@ -53,9 +64,15 @@ export function HouseLaptopIcon(params) {
 export function HourglassEndIcon(params) {
   return <FontAwesomeIcon icon={faHourglassEnd} {...params} />;
 }
+
 export function HourglassIcon(params) {
   return <FontAwesomeIcon icon={faHourglass} {...params} />;
 }
+
 export function GraduationCapIcon(params) {
   return <FontAwesomeIcon icon={faGraduationCap} {...params} />;
+}
+
+export function TrashIcon(params) {
+  return <FontAwesomeIcon icon={faTrash} {...params} />;
 }
