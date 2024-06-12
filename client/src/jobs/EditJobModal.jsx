@@ -1,7 +1,7 @@
-import CheckBox from "./Components/CheckBox";
-import TextInput from "./Components/TextInput";
-import TextArea from "./Components/TextArea";
-import NumberInput from "./Components/NumberInput";
+import CheckBox from "../Components/Inputs/CheckBox.jsx";
+import TextInput from "../Components/Inputs/TextInput.jsx";
+import TextArea from "../Components/Inputs/TextArea.jsx";
+import NumberInput from "../Components/Inputs/NumberInput.jsx";
 import SelectInput from "./Components/SelectInput";
 import {useEffect, useState} from "react";
 import {useModifyJobMutation} from "../state/jobApiSlice";
