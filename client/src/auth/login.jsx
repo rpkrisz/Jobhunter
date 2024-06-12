@@ -16,12 +16,13 @@ export default function Login() {
   const handelChange = target => {
     setLogdata({...logdata, [target.name]: target.value});
   };
+
   function handelSubmit(e) {
     e.preventDefault();
     apiLogin({
       body: logdata,
     }).then(resp => {
-      resp.data ? navigate("/") : setError("Authentication failed. Try again!");
+      resp.data ? navigate(-1) : setError("Authentication failed. Try again!");
     });
   }
 
