@@ -103,7 +103,12 @@ export default function EditJobModal({selectedJob}) {
         <div className="flex justify-between flex-wrap gap-3 items-center">
           <TextInput name="city" label="City" inputData={inputData} handelChange={handelChange} />
           <SelectInput inputData={inputData} handelChange={handelChange} />
-          <CheckBox inputData={inputData} handelChange={handelChange} />
+          <CheckBox
+            inputData={inputData}
+            handelChange={handelChange}
+            label="Home office available"
+            name="homeOffice"
+          />
         </div>
         <button type="submit" className="btn btn-primary mt-3" onClick={e => handelSubmit(e)}>
           Save changes

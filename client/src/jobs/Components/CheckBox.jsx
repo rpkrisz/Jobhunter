@@ -1,13 +1,14 @@
-export default function CheckBox({inputData, handelChange}) {
+export default function CheckBox({name, label, inputData, handelChange, placeholder}) {
   return (
     <label className="label cursor-pointer flex-grow">
-      <span className="label-text">Home Office available</span>
+      {label && <span className="label-text">{label}</span>}
       <input
         type="checkbox"
-        name="homeOffice"
+        name={name}
         className="checkbox"
+        placeholder={placeholder}
         onChange={e => handelChange(e)}
-        checked={inputData.homeOffice ?? false}
+        checked={inputData[name] ?? false}
       />
     </label>
   );
