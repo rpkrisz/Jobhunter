@@ -6,8 +6,8 @@ export default function CheckBox({inputData, handelChange}) {
         type="checkbox"
         name="homeOffice"
         className="checkbox"
-        value={inputData.homeOffice ?? ""}
-        onClick={e => handelChange(e)}
+        onChange={e => handelChange(e)}
+        checked={inputData.homeOffice ?? false}
       />
     </label>
   );
