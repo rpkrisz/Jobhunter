@@ -29,9 +29,6 @@ export const jobApiSlice = createApi({
                             case "company":
                                 url.push(item[0] + "[$like]=%" + item[1] + "%")
                                 break;
-                            case "city":
-                                url.push(item[0] + "[$like]=%" + item[1] + "%")
-                                break;
                             case "salaryFrom":
                                 url.push(item.join("[$gt]="))
                                 break;

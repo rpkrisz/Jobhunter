@@ -64,10 +64,10 @@ export default function FilterModal({filterData, setFilterData}) {
           <label className="input input-bordered flex items-center gap-2">
             <input
               type="text"
-              name="company"
+              name="city"
               className="grow"
-              placeholder="Company"
-              value={inputData.company ?? ""}
+              placeholder="City"
+              value={inputData.city ?? ""}
               onChange={e => handelChange(e.target)}
             />
           </label>
@@ -84,16 +84,10 @@ export default function FilterModal({filterData, setFilterData}) {
         </form>
         <div className="modal-action">
           <form method="dialog" className="flex gap-1">
-            <button
-              className="btn bg-primary btn-ghost"
-              onClick={handelCanceling}
-            >
+            <button className="btn bg-primary btn-ghost" onClick={handelCanceling}>
               Cancel
             </button>
-            <button
-              className="btn bg-primary btn-ghost"
-              onClick={handelFiltering}
-            >
+            <button className="btn bg-primary btn-ghost" onClick={handelFiltering}>
               Filter
             </button>
           </form>
