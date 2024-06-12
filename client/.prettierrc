@@ -6,5 +6,6 @@
     "endOfLine": "lf",
     "arrowParens": "avoid",
     "semi": true,
-    "embeddedLanguageFormatting": "auto"
+    "embeddedLanguageFormatting": "auto",
+    "experimentalTernaries": true
 }
