@@ -2,7 +2,7 @@ export default function SelectInput({inputData, handelChange}) {
   return (
     <label className="form-control justify-start flex-grow min-w-96">
       <div className="label">
-        <span className="label-text">Job type?</span>
+        <span className="label-text">Job type</span>
       </div>
       <select
         className="select select-bordered flex items-center gap-2  w-full "
@@ -11,7 +11,7 @@ export default function SelectInput({inputData, handelChange}) {
         onChange={e => handelChange(e)}
       >
         <option disabled value="">
-          Job type?
+          Job type
         </option>
         <option value="full-time">Full-time</option>
         <option value="part-time">Part-time</option>

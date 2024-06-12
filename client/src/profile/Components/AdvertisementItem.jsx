@@ -1,3 +1,4 @@
+import {useModifyJobMutation, useRemoveJobMutation} from "../../state/jobApiSlice";
 import {
   BuildingIcon,
   LocationDotIcon,
@@ -10,13 +11,27 @@ import {
   TrashIcon,
 } from "../../Components/FawIcons";
 
-export default function AdvertisementItem({job, setSelectedJob}) {
+export default function AdvertisementItem({job, setSelectedJob, setFeedBack, closeFeedBack}) {
+  const [deleteJobAdv] = useRemoveJobMutation();
+
   function handelEdit() {
     console.log("Edit");
   }
 
   function handelDelete() {
-    console.log("Delete");
+    deleteJobAdv(job.id)
+      .then(resp => {
+        console.log(resp);
+        resp.error
+          ? setFeedBack({error: true, succes: false})
+          : setFeedBack({error: false, succes: true});
+      })
+      .then(() => {
+        setTimeout(() => {
+          closeFeedBack();
+        }, 3000);
+      });
+    console.log("Deleted");
   }
 
   function handelShow() {

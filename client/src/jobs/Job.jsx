@@ -1,18 +1,42 @@
 import {useParams} from "react-router-dom";
 import {useGetJobQuery} from "../state/jobApiSlice.js";
 import {useCreateApplyMutation} from "../state/applicantApiSlice.js";
+import {useGetUserJobsQuery} from "../state/applicantApiSlice.js";
 import {useSelector} from "react-redux";
 import InfinitLoading from "../Components/InfinitLoading.jsx";
+import Succes from "../Components/Succes.jsx";
+import Error from "../Components/Error.jsx";
+import {useState} from "react";
+
 export default function Job() {
   const {jobId} = useParams();
   let {data: job, isLoading, error} = useGetJobQuery(jobId);
   const [applyJob] = useCreateApplyMutation();
   const user = useSelector(state => state.auth.user);
+  const [feedBack, setFeedBack] = useState({error: false, succes: false});
+  const {data} = useGetUserJobsQuery(user?.id);
+  const hasApplied = user && data?.map(app => app.jobId).includes(Number(jobId));
+
   function handelApply() {
     applyJob({
       body: {jobId: Number(jobId)},
-    });
+    })
+      .then(resp => {
+        resp.error
+          ? setFeedBack({error: true, succes: false})
+          : setFeedBack({error: false, succes: true});
+      })
+      .then(() => {
+        setTimeout(() => {
+          closeFeedBack();
+        }, 3000);
+      });
   }
+
+  function closeFeedBack() {
+    setFeedBack({error: false, succes: false});
+  }
+
   if (error) {
     return (
       <div
@@ -23,19 +47,38 @@ export default function Job() {
       </div>
     );
   }
+
   return (
     <>
+      {(feedBack.error || feedBack.succes) && (
+        <div className="toast toast-end toast-bottom">
+          {feedBack.succes && (
+            <Succes message="Your application went throug!" closeFunction={closeFeedBack} />
+          )}
+          {feedBack.error && (
+            <Error message="Something went wrong! Try again!" closeFunction={closeFeedBack} />
+          )}
+        </div>
+      )}
       {isLoading ? (
         <InfinitLoading />
       ) : (
-        <div className="container flex flex-col text-left p-2 rounded">
+        <div className="container flex flex-col text-left p-2 rounded max-w-4xl">
           <div>
             <div className="my-3 flex justify-between ">
               <div>
                 <h2 className="text-3xl">{job.position} job description</h2>
-                <p className="text-xs">Are you interested? Apply now!</p>
+                {user ? (
+                  hasApplied ? (
+                    <p className="text-xs">You have already applied.</p>
+                  ) : (
+                    <p className="text-xs">Are you interested? Apply now!</p>
+                  )
+                ) : (
+                  <p className="text-xs">Are you interested? Sign in and Apply now!</p>
+                )}
               </div>
-              {user && (
+              {!hasApplied && (
                 <button className="btn btn-primary" onClick={handelApply}>
                   Apply
                 </button>
