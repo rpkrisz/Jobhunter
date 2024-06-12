@@ -1,9 +1,9 @@
-import {useModifyJobMutation, useRemoveJobMutation} from "../../state/jobApiSlice";
+import {useRemoveJobMutation} from "../../state/jobApiSlice";
 import {
   BuildingIcon,
   LocationDotIcon,
   HouseLaptopIcon,
-  HourglassEndIcon,
+  HourglassStartIcon,
   HourglassIcon,
   GraduationCapIcon,
   PenToSquareIcon,
@@ -15,7 +15,8 @@ export default function AdvertisementItem({job, setSelectedJob, setFeedBack, clo
   const [deleteJobAdv] = useRemoveJobMutation();
 
   function handelEdit() {
-    console.log("Edit");
+    setSelectedJob(job.id);
+    document.getElementById(`EditJobModal`).showModal();
   }
 
   function handelDelete() {
@@ -44,7 +45,7 @@ export default function AdvertisementItem({job, setSelectedJob, setFeedBack, clo
       case "full-time":
         return <HourglassIcon />;
       case "part-time":
-        return <HourglassEndIcon />;
+        return <HourglassStartIcon />;
       case "internship":
         return <GraduationCapIcon />;
       default:
@@ -53,7 +54,7 @@ export default function AdvertisementItem({job, setSelectedJob, setFeedBack, clo
   }
 
   return (
-    <li className="container flex flex-row text-left bg-green-500 m-3 p-2 rounded justify-between flex-wrap gap-1">
+    <li className="container flex flex-row text-left bg-green-500 my-3 p-2 rounded justify-between flex-wrap gap-1">
       <div className="self-center">
         <div className="flex justify-between items-center">
           <p className="font-bold text-4xl self-start">{job.position}</p>

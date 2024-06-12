@@ -5,6 +5,7 @@ import ApplicantsModal from "./Components/ApplicantsModal.jsx";
 import {useSelector} from "react-redux";
 import {Link} from "react-router-dom";
 import {useState} from "react";
+import EditJobModal from "../jobs/EditJobModal.jsx";
 
 export default function Profile() {
   const user = useSelector(state => state.auth.user);
@@ -23,6 +24,7 @@ export default function Profile() {
         {user.role === "company" && (
           <>
             <ApplicantsModal selectedJob={selectedJob} />
+            <EditJobModal selectedJob={selectedJob} />
             <div className="flex flex-row justify-between">
               <h2 className="text-xl">A te hírdetéseid:</h2>
               <Link className="btn" to="/jobs">
