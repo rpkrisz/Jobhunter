@@ -15,7 +15,7 @@ export default function Job() {
   const user = useSelector(state => state.auth.user);
   const [feedBack, setFeedBack] = useState({error: false, succes: false});
   const {data} = useGetUserJobsQuery(user?.id);
-  const hasApplied = user && data?.map(app => app.jobId).includes(Number(jobId));
+  const canApplied = data?.map(app => app.jobId).includes(Number(jobId));
 
   function handelApply() {
     applyJob({
@@ -69,7 +69,7 @@ export default function Job() {
               <div>
                 <h2 className="text-3xl">{job.position} job description</h2>
                 {user ? (
-                  hasApplied ? (
+                  canApplied ? (
                     <p className="text-xs">You have already applied.</p>
                   ) : (
                     <p className="text-xs">Are you interested? Apply now!</p>
@@ -78,7 +78,7 @@ export default function Job() {
                   <p className="text-xs">Are you interested? Sign in and Apply now!</p>
                 )}
               </div>
-              {!hasApplied && (
+              {user?.role === "jobseeker" && !canApplied && (
                 <button className="btn btn-primary" onClick={handelApply}>
                   Apply
                 </button>
