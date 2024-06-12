@@ -4,8 +4,8 @@ import {useCreateApplyMutation} from "../state/applicantApiSlice.js";
 import {useGetUserJobsQuery} from "../state/applicantApiSlice.js";
 import {useSelector} from "react-redux";
 import InfinitLoading from "../Components/InfinitLoading.jsx";
-import Succes from "../Components/Succes.jsx";
-import Error from "../Components/Error.jsx";
+import Succes from "../Components/Feedbacks/Succes.jsx";
+import Error from "../Components/Feedbacks/Error.jsx";
 import {useState} from "react";
 
 export default function Job() {

@@ -2,8 +2,8 @@ import AdvertisementItem from "./AdvertisementItem.jsx";
 import {useGetJobsQuery} from "../../state/jobApiSlice.js";
 import InfinitLoading from "../../Components/InfinitLoading.jsx";
 import {useState} from "react";
-import Succes from "../../Components/Succes.jsx";
-import Error from "../../Components/Error.jsx";
+import Succes from "../../Components/Feedbacks/Succes.jsx";
+import Error from "../../Components/Feedbacks/Error.jsx";
 
 export default function AdvertisementList({setSelectedJob}) {
   const {data, isSuccess} = useGetJobsQuery();

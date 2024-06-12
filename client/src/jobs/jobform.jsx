@@ -5,7 +5,7 @@ import NumberInput from "./Components/NumberInput";
 import SelectInput from "./Components/SelectInput";
 import {useState} from "react";
 import {useCreateJobMutation} from "../state/jobApiSlice";
-import Error from "../Components/Error";
+import Error from "../Components/Feedbacks/Error";
 import {useNavigate} from "react-router-dom";
 
 export default function JobForm() {

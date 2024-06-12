@@ -1,4 +1,4 @@
-import {XmarkIcon, CircleCheckIcon} from "./FawIcons";
+import {XmarkIcon, CircleCheckIcon} from "../FawIcons";
 
 export default function Succes({message, closeFunction}) {
   message = message.charAt(0).toUpperCase() + message.slice(1);

@@ -1,4 +1,4 @@
-import {XmarkIcon, CircleXmarkIcon} from "./FawIcons";
+import {XmarkIcon, CircleXmarkIcon} from "../FawIcons";
 
 export default function Error({message, closeFunction}) {
   if (!message) {
