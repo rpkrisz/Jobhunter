@@ -22,7 +22,7 @@ export default function Login() {
     apiLogin({
       body: logdata,
     }).then(resp => {
-      resp.data ? navigate(-1) : setError("Authentication failed. Try again!");
+      resp.data ? navigate("/") : setError("Authentication failed. Try again!");
     });
   }
 
