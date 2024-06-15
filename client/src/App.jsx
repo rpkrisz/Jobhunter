@@ -8,6 +8,7 @@ import Login from "./auth/login";
 import JobForm from "./jobs/JobForm";
 import RequireAuth from "./RequireAuth";
 import Job from "./jobs/Job";
+import ExperienceForm from "./experinces/ExperienceForm";
 
 const router = createBrowserRouter([
   {
@@ -51,6 +52,14 @@ const router = createBrowserRouter([
             element: <Job />,
           },
         ],
+      },
+      {
+        path: "/experiences",
+        element: (
+          <RequireAuth>
+            <ExperienceForm />
+          </RequireAuth>
+        ),
       },
     ],
   },
