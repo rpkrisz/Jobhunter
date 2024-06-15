@@ -34,7 +34,7 @@ export default function Menu() {
             Profile
           </NavLink>
           {user.role === "company" && (
-            <NavLink className="btn btn-ghost text-xl" to="/jobs">
+            <NavLink className="btn btn-ghost text-xl" to="/jobs/create">
               Add job advertisement
             </NavLink>
           )}

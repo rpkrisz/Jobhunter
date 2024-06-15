@@ -28,7 +28,7 @@ export default function Profile() {
             <EditJobModal selectedJob={selectedJob} />
             <div className="flex flex-row justify-between">
               <h2 className="text-xl">A te hírdetéseid:</h2>
-              <Link className="btn" to="/jobs">
+              <Link className="btn" to="/jobs/create">
                 Add advertisement
               </Link>
             </div>

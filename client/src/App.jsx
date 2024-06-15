@@ -40,7 +40,7 @@ const router = createBrowserRouter([
         element: null,
         children: [
           {
-            index: true,
+            path: "/jobs/create",
             element: (
               <RequireAuth>
                 <JobForm />
