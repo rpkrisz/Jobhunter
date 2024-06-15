@@ -4,9 +4,12 @@ import InfinitLoading from "../../Components/InfinitLoading.jsx";
 import {useState} from "react";
 import Succes from "../../Components/Feedbacks/Succes.jsx";
 import Error from "../../Components/Feedbacks/Error.jsx";
+import {selectUserId} from "../../state/authSlice.js";
+import {useSelector} from "react-redux";
 
 export default function AdvertisementList({setSelectedJob}) {
-  const {data, isSuccess} = useGetJobsQuery();
+  const userId = useSelector(selectUserId);
+  const {data, isSuccess} = useGetJobsQuery({userId: userId}); // add user ID
   const [feedBack, setFeedBack] = useState({error: false, succes: false});
 
   function closeFeedBack() {

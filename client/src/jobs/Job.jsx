@@ -7,12 +7,13 @@ import InfinitLoading from "../Components/InfinitLoading.jsx";
 import Succes from "../Components/Feedbacks/Succes.jsx";
 import Error from "../Components/Feedbacks/Error.jsx";
 import {useState} from "react";
+import {selectUser} from "../state/authSlice.js";
 
 export default function Job() {
   const {jobId} = useParams();
   let {data: job, isLoading, error} = useGetJobQuery(jobId);
   const [applyJob] = useCreateApplyMutation();
-  const user = useSelector(state => state.auth.user);
+  const user = useSelector(selectUser);
   const [feedBack, setFeedBack] = useState({error: false, succes: false});
   const {data} = useGetUserJobsQuery(user?.id);
   const canApplied = data?.map(app => app.jobId).includes(Number(jobId));

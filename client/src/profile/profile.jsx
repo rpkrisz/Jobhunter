@@ -6,9 +6,10 @@ import {useSelector} from "react-redux";
 import {Link} from "react-router-dom";
 import {useState} from "react";
 import EditJobModal from "../jobs/EditJobModal.jsx";
+import {selectUser} from "../state/authSlice.js";
 
 export default function Profile() {
-  const user = useSelector(state => state.auth.user);
+  const user = useSelector(selectUser);
   const [selectedJob, setSelectedJob] = useState();
 
   return (

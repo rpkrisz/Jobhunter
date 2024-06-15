@@ -22,7 +22,13 @@ export const authSlice = createSlice({
             state.user = payload.user;
             state.token = payload.accessToken;
         })
+    },
+    selectors: {
+        selectUser: (state) => state.user,
+        selectUserId: (state) => state.user.id,
+        selectToken: (state) => state.token,
     }
 })
 
 export const { login, logout } = authSlice.actions;
+export const { selectUser, selectUserId, selectToken } = authSlice.selectors;

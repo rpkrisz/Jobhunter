@@ -1,12 +1,13 @@
 import {Link, NavLink} from "react-router-dom";
 import {useSelector} from "react-redux";
 import {useDispatch} from "react-redux";
-import { logout } from "./state/authSlice.js";
+import {logout} from "./state/authSlice.js";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {faBriefcase} from "@fortawesome/free-solid-svg-icons";
+import {selectUser} from "./state/authSlice.js";
 
 export default function Menu() {
-  const user = useSelector(state => state.auth.user);
+  const user = useSelector(selectUser);
   const dispatch = useDispatch();
 
   return (
