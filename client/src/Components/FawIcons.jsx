@@ -17,9 +17,13 @@ import {
   faEye,
   faCircleCheck,
   faCircleXmark,
+  faUserPen,
   faHourglassStart,
 } from "@fortawesome/free-solid-svg-icons";
 
+export function UserPenIcon(params) {
+  return <FontAwesomeIcon icon={faUserPen} {...params} />;
+}
 
 export function HourglassStartIcon(params) {
   return <FontAwesomeIcon icon={faHourglassStart} {...params} />;
