@@ -72,17 +72,19 @@ export default function JobForm() {
             handelChange={handelChange}
           />
         </div>
+        <SliderInput inputData={inputData} setInputData={setInputData}></SliderInput>
         <div className="flex justify-between flex-wrap gap-3 items-center">
-          <SliderInput></SliderInput>
           <NumberInput
-            label="Payment lower limit"
+            label="Salary lower limit"
             name="salaryFrom"
+            step="10000"
             inputData={inputData}
             handelChange={handelChange}
           />
           <NumberInput
-            label="Payment upper limit"
+            label="Salary upper limit"
             name="salaryTo"
+            step="10000"
             inputData={inputData}
             handelChange={handelChange}
           />
