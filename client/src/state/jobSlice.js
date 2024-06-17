@@ -6,6 +6,7 @@ export const jobSlice = createSlice({
     initialState: {
         jobs: [],
         total: 0,
+        pageCount: 1,
         filter:
         {
             limit: 10,
@@ -14,7 +15,7 @@ export const jobSlice = createSlice({
     },
     reducers: {
         changePageTo: (state, { payload }) => {
-            const skip = (payload-1) * Number(state.filter.limit);
+            const skip = (payload - 1) * Number(state.filter.limit);
             state.filter = { ...state.filter, skip: skip };
         },
         setFilter: (state, { payload }) => {
@@ -29,13 +30,14 @@ export const jobSlice = createSlice({
                 state.total = payload.total
                 state.filter.limit = payload.limit
                 state.filter.skip = payload.skip
+                state.pageCount = Math.ceil(Number(payload.total) / Number(payload.limit))
             })
     },
     selectors: {
         selectJobs: (state) => state.jobs,
         selectTotal: (state) => state.total,
         selectFilter: (state) => state.filter,
-        selectPageCount: (state) => Math.ceil(Number(state.total) / Number(state.filter.limit))
+        selectPageCount: (state) => state.pageCount,
     },
 })
 
