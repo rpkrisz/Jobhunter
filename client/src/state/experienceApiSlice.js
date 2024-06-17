@@ -27,8 +27,8 @@ export const experienceApiSlice = createApi({
             invalidatesTags: ["Experiences"]
         }),
         modifyExperience: builder.mutation({
-            query: ({ body }) => ({
-                url: `/${body.id}`,
+            query: ({ id, body }) => ({
+                url: `/${id}`,
                 method: "PATCH",
                 body: body
             }),
