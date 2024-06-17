@@ -10,9 +10,9 @@ export default function FilterModal() {
   const handelChange = e => {
     if (e.name === "homeOffice") {
       if (inputData.homeOffice) {
-        setInputData({...inputData, [e.name]: 0});
+        setInputData({...inputData, [e.name]: false});
       } else {
-        setInputData({...inputData, [e.name]: 1});
+        setInputData({...inputData, [e.name]: true});
       }
       return;
     }
