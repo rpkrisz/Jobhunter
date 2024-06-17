@@ -1,13 +1,18 @@
-import {useState} from "react";
+import {useEffect, useState} from "react";
 import {useLoginMutation} from "../state/authApiSlice.js";
 import {useNavigate} from "react-router-dom";
 import Email from "./Components/EmailInput.jsx";
 import Error from "../Components/Feedbacks/Error.jsx";
 import Password from "./Components/PasswordInput.jsx";
-
-function validation(params) {}
+import {setTitle} from "../state/titleSlice.js";
+import {useDispatch} from "react-redux";
 
 export default function Login() {
+  const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(setTitle("Log in"));
+  }, []);
+  
   const [apiLogin] = useLoginMutation();
   const navigate = useNavigate();
   const [logdata, setLogdata] = useState({email: "", password: ""});
@@ -27,7 +32,7 @@ export default function Login() {
   }
 
   return (
-    <form action="" className="bg-slate-400 size-fit p-5 rounded form-control gap-2 ">
+    <form action="" className="bg-primary size-fit p-5 rounded form-control gap-2 ">
       <Error message={error} closeFunction={() => setError("")} />
       <Email data={logdata} handelChange={handelChange} />
       <Password data={logdata} handelChange={handelChange} />

@@ -1,10 +1,14 @@
 import {Outlet} from "react-router-dom";
 import Menu from "./menu";
+import Title from "./Components/Title";
 
 export default function Layout() {
   return (
     <>
-      <Menu />
+      <header>
+        <Menu />
+        <Title />
+      </header>
       <main className="container flex flex-col justify-center content-center flex-wrap px-6 mx-auto min-h-[87svh] overflow-auto w-9/12 ">
         <Outlet />
       </main>

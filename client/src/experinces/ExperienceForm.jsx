@@ -1,10 +1,17 @@
-import {useState} from "react";
+import {useState, useEffect} from "react";
 import TextArea from "../Components/Inputs/TextArea";
 import Error from "../Components/Feedbacks/Error";
 import {useCreateExperienceMutation} from "../state/experienceApiSlice";
 import {useNavigate} from "react-router-dom";
+import {setTitle} from "../state/titleSlice.js";
+import {useDispatch} from "react-redux";
 
-export default function ExperienceForm(params) {
+export default function ExperienceForm() {
+  const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(setTitle("Experience form"));
+  }, []);
+  
   const navigate = useNavigate();
   const [createExp] = useCreateExperienceMutation();
   const [experienceInput, setExperienceInput] = useState({experience: ""});

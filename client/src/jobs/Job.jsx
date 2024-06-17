@@ -6,10 +6,17 @@ import {useSelector} from "react-redux";
 import InfinitLoading from "../Components/InfinitLoading.jsx";
 import Succes from "../Components/Feedbacks/Succes.jsx";
 import Error from "../Components/Feedbacks/Error.jsx";
-import {useState} from "react";
+import {useEffect, useState} from "react";
 import {selectUser} from "../state/authSlice.js";
+import {useDispatch} from "react-redux";
+import {setTitle} from "../state/titleSlice.js";
 
 export default function Job() {
+  const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(setTitle("Job description"));
+  }, []);
+  
   const {jobId} = useParams();
   let {data: job, isLoading, error} = useGetJobQuery(jobId);
   const [applyJob] = useCreateApplyMutation();
@@ -68,7 +75,7 @@ export default function Job() {
           <div>
             <div className="my-3 flex justify-between ">
               <div>
-                <h2 className="text-3xl">{job.position} job description</h2>
+                <h2 className="text-3xl">{job.position}</h2>
                 {user ? (
                   canApplied ? (
                     <p className="text-xs">You have already applied.</p>

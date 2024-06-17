@@ -7,8 +7,15 @@ import Password from "./Components/PasswordInput.jsx";
 import Name from "./Components/NameInput.jsx";
 import Role from "./Components/RoleInput.jsx";
 import Error from "../Components/Feedbacks/Error.jsx";
+import {setTitle} from "../state/titleSlice.js";
+import {useDispatch} from "react-redux";
 
 export default function Registration() {
+  const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(setTitle("Registration"));
+  }, []);
+  
   const [apiReg] = useRegisterMutation();
   const navigate = useNavigate();
   const [error, setError] = useState(null);
@@ -51,7 +58,7 @@ export default function Registration() {
 
   return (
     <>
-      <form action="" className="form-control bg-slate-400 size-fit p-5 rounded gap-2">
+      <form action="" className="form-control bg-primary size-fit p-5 rounded gap-2">
         <Error message={error} closeFunction={() => setError("")} />
         <Name data={regdata} handelChange={handelChange} />
         <Email data={regdata} handelChange={handelChange} />

@@ -3,13 +3,20 @@ import TextInput from "../Components/Inputs/TextInput";
 import TextArea from "../Components/Inputs/TextArea";
 import NumberInput from "../Components/Inputs/NumberInput";
 import SelectInput from "./Components/SelectInput";
-import {useState} from "react";
+import {useEffect, useState} from "react";
 import {useCreateJobMutation} from "../state/jobApiSlice";
 import Error from "../Components/Feedbacks/Error";
 import {useNavigate} from "react-router-dom";
 import SliderInput from "./Components/SliderInput";
+import {setTitle} from "../state/titleSlice.js";
+import {useDispatch} from "react-redux";
 
 export default function JobForm() {
+  const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(setTitle("Advertisement form"));
+  }, []);
+  
   const navigate = useNavigate();
   const [createJob] = useCreateJobMutation();
   const [error, setError] = useState(null);
