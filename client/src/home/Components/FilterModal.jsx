@@ -1,7 +1,12 @@
 import {useState} from "react";
+import {selectFilter, setFilter} from "../../state/jobSlice";
+import {useDispatch, useSelector} from "react-redux";
 
-export default function FilterModal({filterData, setFilterData}) {
+export default function FilterModal() {
+  const filterData = useSelector(selectFilter);
+  const dispatch = useDispatch();
   const [inputData, setInputData] = useState(filterData);
+
   const handelChange = e => {
     if (e.name === "homeOffice") {
       if (inputData.homeOffice) {
@@ -21,11 +26,13 @@ export default function FilterModal({filterData, setFilterData}) {
         result[key] = inputData[key];
       }
     }
-    setFilterData(result);
+    dispatch(setFilter(result));
   }
+
   function handelCanceling() {
-    setFilterData({});
+    dispatch(setFilter({limit: filterData.limit, skip: filterData.skip}));
   }
+
   return (
     <dialog id="filtermodal" className="modal">
       <div className="modal-box">

@@ -2,13 +2,16 @@ import {useGetJobsQuery} from "../state/jobApiSlice.js";
 import JobList from "./Components/JobList.jsx";
 import FilterModal from "./Components/FilterModal.jsx";
 import InfinitLoading from "../Components/InfinitLoading.jsx";
-import {useState} from "react";
 import FiltersRow from "./Components/FiltersRow.jsx";
 import {MagnifyingGlassIcon, FilterIcon} from "../Components/FawIcons.jsx";
+import {useDispatch, useSelector} from "react-redux";
+import {selectFilter,setFilter} from "../state/jobSlice.js";
 
 export default function Home() {
-  const [filterData, setFilterData] = useState({});
-  let {data, isSuccess} = useGetJobsQuery(filterData);
+  const filter = useSelector(selectFilter);
+  let {data, isSuccess} = useGetJobsQuery(filter);
+  console.log(filter);
+  const dispatch = useDispatch();
 
   return (
     <>
@@ -21,7 +24,7 @@ export default function Home() {
               className="grow"
               placeholder="Search"
               onChange={e => {
-                setFilterData({...filterData, company: e.target.value});
+                dispatch(setFilter({...filter, company: e.target.value}));
               }}
             />
             <MagnifyingGlassIcon />
@@ -34,10 +37,10 @@ export default function Home() {
             Filter
           </button>
         </div>
-        <FiltersRow filterData={filterData} setFilterData={setFilterData} />
+        <FiltersRow />
       </div>
-      <FilterModal filterData={filterData} setFilterData={setFilterData} />
-      {isSuccess ? <JobList jobs={data} /> : <InfinitLoading />}
+      <FilterModal />
+      {isSuccess ? <JobList jobs={data.data} /> : <InfinitLoading />}
     </>
   );
 }
