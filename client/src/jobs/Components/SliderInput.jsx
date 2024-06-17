@@ -27,7 +27,8 @@ export default function SliderInput({inputData, setInputData}) {
         value={value}
         onChange={handelChange}
         valueLabelDisplay="auto"
-        color="primary"
+        color="success"
+        className="bg-primary-content"
       />
     </label>
   );

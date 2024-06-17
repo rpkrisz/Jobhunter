@@ -11,35 +11,35 @@ export default function Menu() {
   const dispatch = useDispatch();
 
   return (
-    <nav className="navbar bg-base-100 flex-grow">
+    <nav className="navbar bg-base-100 flex-grow gap-1 ">
       <Link className="text-3xl" to="/">
-        <FontAwesomeIcon icon={faBriefcase} size="lg" />{" "}
+        <FontAwesomeIcon icon={faBriefcase} size="lg" className="text-primary" />
       </Link>
       {!user && (
         <>
-          <NavLink className="btn btn-ghost text-xl" to="/registration">
+          <NavLink className="btn btn-ghost text-xl hover:text-primary" to="/registration">
             Registration
           </NavLink>
-          <NavLink className="btn btn-ghost text-xl" to="/login">
+          <NavLink className="btn btn-ghost text-xl hover:text-primary" to="/login">
             LogIn
           </NavLink>
         </>
       )}
       {user && (
         <>
-          <NavLink className="btn btn-ghost text-xl" to="/">
+          <NavLink className="btn btn-ghost text-xl hover:text-primary" to="/">
             Jobs
           </NavLink>
-          <NavLink className="btn btn-ghost text-xl" to="/profile">
+          <NavLink className="btn btn-ghost text-xl hover:text-primary" to="/profile">
             Profile
           </NavLink>
           {user.role === "company" && (
-            <NavLink className="btn btn-ghost text-xl" to="/jobs/create">
+            <NavLink className="btn btn-ghost text-xl hover:text-primary" to="/jobs/create">
               Add job advertisement
             </NavLink>
           )}
           <NavLink
-            className="btn btn-ghost text-xl"
+            className="btn btn-ghost text-xl hover:text-primary"
             to="/"
             onClick={() => {
               dispatch(logout());

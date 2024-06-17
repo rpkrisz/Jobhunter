@@ -52,24 +52,24 @@ export default function AdvertisementItem({job, setSelectedJob, setFeedBack, clo
   }
 
   return (
-    <li className="container flex flex-row text-left bg-green-500 my-3 p-2 rounded justify-between flex-wrap gap-1">
+    <li className="container flex flex-row text-left bg-primary my-3 p-2 rounded justify-between flex-wrap gap-1">
       <div className="self-center">
-        <div className="flex justify-between items-center">
+        <div className="flex justify-between items-center py-1 my-1">
           <p className="font-bold text-4xl self-start">{job.position}</p>
         </div>
         <div className="self-start flex flex-row gap-3">
-          <p className="badge badge-primary self-center">
+          <p className="badge badge-accent self-center">
             <BuildingIcon />
             {job.company}
           </p>
-          <p className="badge badge-primary self-center">
+          <p className="badge badge-accent self-center">
             <LocationDotIcon /> {job.city}
           </p>
-          <p className="badge badge-primary self-center">
+          <p className="badge badge-accent self-center">
             {iconSwitch(job.type)} {job.type}
           </p>
           {!job.homeOffice || (
-            <p className="badge badge-primary self-center">
+            <p className="badge badge-accent self-center">
               <HouseLaptopIcon />
               Home Office
             </p>
