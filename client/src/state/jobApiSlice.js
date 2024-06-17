@@ -39,11 +39,10 @@ export const jobApiSlice = createApi({
                                 break;
                         }
                     }
-                    return "?"+ url.join('&');
+                    return "?" + url.join('&');
                 }
                 return "";
             },
-            transformResponse: (result) => result.data,
             providesTags: ["Jobs"]
         }),
         getJob: builder.query({

@@ -5,6 +5,7 @@ import { experienceApiSlice } from "./experienceApiSlice.js";
 import { authApiSlice } from "./authApiSlice.js";
 import { authSlice } from "./authSlice.js";
 import { experienceSlice } from "./experienceSlice.js";
+import { jobSlice } from "./jobSlice.js";
 
 
 export const store = configureStore({
@@ -15,6 +16,7 @@ export const store = configureStore({
         [jobApiSlice.reducerPath]: jobApiSlice.reducer,
         [experienceApiSlice.reducerPath]: experienceApiSlice.reducer,
         [experienceSlice.name]: experienceSlice.reducer,
+        [jobSlice.name]: jobSlice.reducer,
 
     },
     middleware: (getDefaultMiddleware) => (
