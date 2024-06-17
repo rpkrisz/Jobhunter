@@ -7,7 +7,7 @@ _Kliensoldali webprogramozás 2. beadandó_
 Kérlek, töltsétek ki az adataitokkal beadás előtt!
 
 ```text
-<Réthey-Prikkel Krisztiá>
+<Réthey-Prikkel Krisztián>
 <RGCFPD>
 Kliensoldali webprogramozás - beadandó
 Ezt a megoldást a fent írt hallgató küldte be és készítette a Kliensoldali webprogramozás kurzus számonkéréséhez.
