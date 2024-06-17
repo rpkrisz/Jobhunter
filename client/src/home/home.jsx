@@ -21,7 +21,7 @@ export default function Home() {
             <input
               type="text"
               className="grow"
-              placeholder="Search"
+              placeholder="Search for company"
               onChange={e => {
                 dispatch(setFilter({...filter, company: e.target.value}));
               }}
