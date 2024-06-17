@@ -19,12 +19,16 @@ import {
   faCircleXmark,
   faUserPen,
   faHourglassStart,
+  faFloppyDisk,
 } from "@fortawesome/free-solid-svg-icons";
+
+export function FloppyDiskIcon(params) {
+  return <FontAwesomeIcon icon={faFloppyDisk} {...params} />;
+}
 
 export function UserPenIcon(params) {
   return <FontAwesomeIcon icon={faUserPen} {...params} />;
 }
-
 export function HourglassStartIcon(params) {
   return <FontAwesomeIcon icon={faHourglassStart} {...params} />;
 }
