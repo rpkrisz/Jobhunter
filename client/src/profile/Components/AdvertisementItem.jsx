@@ -22,7 +22,6 @@ export default function AdvertisementItem({job, setSelectedJob, setFeedBack, clo
   function handelDelete() {
     deleteJobAdv(job.id)
       .then(resp => {
-        console.log(resp);
         resp.error
           ? setFeedBack({error: true, succes: false})
           : setFeedBack({error: false, succes: true});
@@ -32,7 +31,6 @@ export default function AdvertisementItem({job, setSelectedJob, setFeedBack, clo
           closeFeedBack();
         }, 3000);
       });
-    console.log("Deleted");
   }
 
   function handelShow() {

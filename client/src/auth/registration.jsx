@@ -41,7 +41,6 @@ export default function Registration() {
           : setError("Registration failed. Try again!")
       )
       .then(resp => {
-        console.log(resp);
         !resp.data
           ? setError("Authentication failed. Try again!")
           : jobseeker

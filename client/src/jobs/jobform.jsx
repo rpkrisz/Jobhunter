@@ -45,7 +45,6 @@ export default function JobForm() {
     createJob({
       body: inputData,
     }).then(resp => {
-      console.log(resp);
       resp.error ? setError(`${resp.error.data.message}. Try again!`) : navigate("/");
     });
   };

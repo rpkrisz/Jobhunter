@@ -17,7 +17,6 @@ export default function ExperienceForm(params) {
   function validation(experiences) {
     for (const expRow of experiences) {
       if (expRow.length !== 3) {
-        console.log(expRow.length);
         expRow.length < 3
           ? setError(
               `Validation faild! Wrong format - too few arguments, ${
@@ -33,7 +32,6 @@ export default function ExperienceForm(params) {
       }
       for (const iter of expRow) {
         if (iter.length === 0) {
-          console.log();
           setError(
             `Validation faild! Empty argument of row #${experiences.indexOf(expRow) + 1} at the #${
               expRow.indexOf(iter) + 1
@@ -57,9 +55,7 @@ export default function ExperienceForm(params) {
     }
 
     const expobj = exps.map(exp => ({company: exp[0], title: exp[1], interval: exp[2]}));
-    console.log(expobj);
     createExp({body: expobj}).then(resp => {
-      console.log(resp);
       resp.data ? navigate("/") : setError(`${resp.error.data.message}. Try again!`);
     });
   };

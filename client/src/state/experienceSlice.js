@@ -15,7 +15,6 @@ export const experienceSlice = createSlice({
             state.experiences[payload.rownum] = payload;
         },
         removeExperience: (state, { payload }) => {
-            console.log(payload);
             state.experiences = state.experiences.filter((exp) => payload.rownum !== exp.rownum);
         },
         removeAll: (state) => {

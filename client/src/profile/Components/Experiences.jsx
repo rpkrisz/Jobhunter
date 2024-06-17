@@ -19,7 +19,6 @@ export default function Profile() {
   function handelDelete(id) {
     removeExp(id)
       .then(resp => {
-        console.log(resp);
         resp.error
           ? setFeedBack({error: true, succes: false})
           : setFeedBack({error: false, succes: true});
