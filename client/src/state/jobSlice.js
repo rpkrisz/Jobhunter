@@ -14,12 +14,10 @@ export const jobSlice = createSlice({
     },
     reducers: {
         changePageTo: (state, { payload }) => {
-            console.log(payload);
             const skip = (payload-1) * Number(state.filter.limit);
             state.filter = { ...state.filter, skip: skip };
         },
         setFilter: (state, { payload }) => {
-            console.log(payload);
             state.filter = { ...payload };
         },
 
@@ -27,7 +25,6 @@ export const jobSlice = createSlice({
     extraReducers: (builder) => {
         builder
             .addMatcher(jobApiSlice.endpoints.getJobs.matchFulfilled, (state, { payload }) => {
-                console.log(payload);
                 state.jobs = payload.data;
                 state.total = payload.total
                 state.filter.limit = payload.limit

@@ -10,7 +10,6 @@ import {selectFilter,setFilter} from "../state/jobSlice.js";
 export default function Home() {
   const filter = useSelector(selectFilter);
   let {data, isSuccess} = useGetJobsQuery(filter);
-  console.log(filter);
   const dispatch = useDispatch();
 
   return (

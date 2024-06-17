@@ -26,7 +26,7 @@ export default function FilterModal() {
         result[key] = inputData[key];
       }
     }
-    dispatch(setFilter(result));
+    dispatch(setFilter({...result, skip: 0}));
   }
 
   function handelCanceling() {
