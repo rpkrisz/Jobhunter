@@ -1,4 +1,9 @@
-export default function PersonalData({user}) {
+
+export default function PersonalData({ user }) {
+  const handelOpenModal = () => {
+    document.getElementById(`EditExpModal`).showModal();
+
+   }
   return (
     <div>
       <div className="my-3 flex justify-between ">
@@ -6,7 +11,9 @@ export default function PersonalData({user}) {
           <h2 className="text-xl">Personal data</h2>
           <p className="text-xs">Your data and experience all in one place.</p>
         </div>
-        <button className="btn btn-primary">Edit experiences</button>
+        <button className="btn btn-primary" onClick={handelOpenModal}>
+          Edit experiences
+        </button>
       </div>
       <table className="table table-zebra">
         <tbody>
