@@ -1,6 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
 import { experienceApiSlice } from "./experienceApiSlice.js";
-import { applicantApiSlice } from "./applicantApiSlice.js";
 
 export const experienceSlice = createSlice({
     name: "experience",
@@ -30,9 +29,6 @@ export const experienceSlice = createSlice({
                 for (const experience of payload) {
                     state.experiences.push({ rownum: index++, ...experience })
                 }
-            })
-            .addMatcher(applicantApiSlice.endpoints.getUserJobs.matchFulfilled, (state, { payload }) => {
-                state.applications = payload;
             })
     },
     selectors: {
