@@ -5,7 +5,7 @@ import Home from "./home/home";
 import Profile from "./profile/profile";
 import Registration from "./auth/registration";
 import Login from "./auth/login";
-import JobForm from "./jobs/JobForm";
+import JobForm from "./jobs/jobform";
 import RequireAuth from "./RequireAuth";
 import Job from "./jobs/Job";
 import ExperienceForm from "./experinces/ExperienceForm";
